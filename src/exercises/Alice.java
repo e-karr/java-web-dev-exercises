@@ -15,10 +15,16 @@ public class Alice {
         String searchTerm = input.next().toLowerCase();
         input.close();
 
-        if (aliceFirstSentence.contains(searchTerm)) {
-            System.out.println("The first sentence of Alice in Wonderland does contain '" + searchTerm + "'.");
+        if (aliceFirstSentence.toLowerCase().contains(searchTerm)) {
+            int searchTermIndex = aliceFirstSentence.toLowerCase().indexOf(searchTerm);
+            int searchTermLength = searchTerm.length();
+            System.out.println("Index: " + searchTermIndex + " Length: " + searchTermLength);
+
+//            String substring = aliceFirstSentence.substring(searchTermIndex, searchTermIndex + searchTermLength);
+            String newSentence = aliceFirstSentence.toLowerCase().replace(searchTerm, "");
+            System.out.println(newSentence);
         } else {
-            System.out.println("'" + searchTerm + "' was not in the first sentence of Alice in Wonderland.");
+            System.out.println("Search term not found");
         }
     }
 }
