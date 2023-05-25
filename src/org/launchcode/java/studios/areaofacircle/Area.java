@@ -7,31 +7,54 @@ import static java.lang.Character.isDigit;
 public class Area {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter a radius: ");
+//        boolean canCompute = false;
+        String userInput;
+        double radius;
+        double area;
 
-        String userInput = input.nextLine();
-        input.close();
+//        do {
+//            System.out.println("Enter a radius: ");
+//            userInput = input.nextLine();
+//
+//            if (userInput.isEmpty()) {
+//                continue;
+//            }
+//
+//            if (input.hasNextDouble() && (radius = input.nextDouble()) > 0) {
+//                canCompute = true;
+//            }
+//        } while (!canCompute);
+//
+//        radius = input.nextDouble();
+//        area = Circle.getArea(radius);
+//        System.out.println("The area of a circle of radius " + radius + " is: " + area);
 
-        if (userInput.isEmpty()) {
-            System.out.println("Error: must enter a value");
-            return;
-        }
+        while (true) {
+            System.out.println("Enter a radius: ");
+            userInput = input.nextLine();
 
-        for (int i = 0; i < userInput.length(); i++) {
-            if (!isDigit(userInput.charAt(i))) {
-                System.out.println("Error: must enter a number");
-                return;
+            if (userInput.isEmpty()) {
+                System.out.println("Error: must enter a value");
+                continue;
             }
+
+            if (!(input.hasNextDouble())) {
+                System.out.println("Error: must enter a number");
+                continue;
+            }
+
+            if ((radius = input.nextDouble()) <= 0) {
+                System.out.println("Error: must enter a positive number");
+                continue;
+            }
+
+            break;
         }
 
-        double radius = Double.parseDouble(userInput);
-
-        if (radius < 1) {
-            System.out.println("Error: radius cannot be negative");
-            return;
-        }
-
-        double area = Circle.getArea(radius);
+        radius = input.nextDouble();
+        area = Circle.getArea(radius);
         System.out.println("The area of a circle of radius " + radius + " is: " + area);
+
+        input.close();
     }
 }
