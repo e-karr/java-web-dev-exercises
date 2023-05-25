@@ -7,13 +7,20 @@ public class TempConverter {
         double fahrenheit;
         double celsius;
         Scanner input;
-
         input = new Scanner(System.in);
-        System.out.println("Enter the temperature in Fahrenheit: ");
-        fahrenheit = input.nextDouble();
-        input.close();
 
-        celsius = (fahrenheit - 32) * 5/9;
-        System.out.println("The temperature in Celsius is: " + celsius + "°C");
+        int tempsEntered = 0;
+        int numOfTemps = Integer.parseInt(args[0]);
+
+        while (tempsEntered < numOfTemps) {
+            System.out.println("Enter the temperature in Fahrenheit: ");
+            fahrenheit = input.nextDouble();
+
+            celsius = (fahrenheit - 32) * 5/9;
+            System.out.println("The temperature in Celsius is: " + celsius + "°C");
+
+            tempsEntered++;
+        }
+        input.close();
     }
 }
