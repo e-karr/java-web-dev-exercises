@@ -12,10 +12,7 @@ public class Area {
 
         if (areaInvalid) {
             System.out.println("Error: must enter a positive number");
-            while (areaInvalid) {
-                main(new String[0]);
-                areaInvalid = false;
-            }
+            main(new String[0]);
         } else {
             System.out.println("The area of a circle of radius " + radius + " is: " + area);
             input.close();
