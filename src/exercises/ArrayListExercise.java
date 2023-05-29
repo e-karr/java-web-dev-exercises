@@ -1,6 +1,7 @@
 package exercises;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static exercises.PrintWordFiveLetters.printWordFiveLetters;
 import static exercises.SumEvenNumbers.sumEvenNumbers;
@@ -23,12 +24,21 @@ public class ArrayListExercise {
 //        int sum = sumEvenNumbers(numbers);
 //        System.out.println(sum);
 
-        ArrayList<String> words = new ArrayList<>();
-        words.add("hazel");
-        words.add("hammond");
-        words.add("jimmy");
-        words.add("elizabeth");
+        // ArrayList Exercises part 1-3
+//        ArrayList<String> words = new ArrayList<>();
+//        words.add("hazel");
+//        words.add("hammond");
+//        words.add("jimmy");
+//        words.add("elizabeth");
+//
+//        printWordFiveLetters(words);
 
-        printWordFiveLetters(words);
+        String phrase = "I would not, could not, in a box. I would not, could not with a fox. " +
+                "I will not eat them in a house. I will not eat them with a mouse.";
+
+        phrase = phrase.replaceAll(",", "").replaceAll("\\.", "");
+        ArrayList<String> phraseArrayList = new ArrayList<>(Arrays.asList(phrase.split(" ")));
+
+        printWordFiveLetters(phraseArrayList);
     }
 }
