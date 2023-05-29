@@ -1,6 +1,7 @@
 package org.launchcode.java.studios.countcharacters;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class CountCharacters {
     public static void main(String[] args) {
@@ -12,6 +13,6 @@ public class CountCharacters {
 
         char[] phraseCharacterArray = phrase.toCharArray();
 
-
+        HashMap<Character, Integer> characterCounts = new HashMap<>();
     }
 }
