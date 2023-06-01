@@ -3,6 +3,8 @@ package org.launchcode.java.studios.countcharacters;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Character.isAlphabetic;
+
 public class CountCharacters {
     public static void main(String[] args) {
         String phrase = "If the product of two terms is zero then common sense says " +
@@ -11,11 +13,17 @@ public class CountCharacters {
                 "that can be factored allowing that side of the equation to equal zero. Once " +
                 "you’ve done that, it’s pretty straightforward from there.";
 
+        phrase = phrase.toLowerCase();
+
         char[] phraseCharacterArray = phrase.toCharArray();
 
         HashMap<Character, Integer> characterCounts = new HashMap<>();
 
         for (char character : phraseCharacterArray) {
+            if (!isAlphabetic(character)) {
+                continue;
+            }
+
             if (!characterCounts.containsKey(character))
                 characterCounts.put(character, 0);
 
