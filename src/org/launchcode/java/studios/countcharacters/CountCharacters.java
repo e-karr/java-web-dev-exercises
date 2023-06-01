@@ -24,9 +24,10 @@ public class CountCharacters {
             }
 
             if (!characterCounts.containsKey(character))
-                characterCounts.put(character, 0);
-
-            characterCounts.computeIfPresent(character, (key, val) -> val + 1);
+                characterCounts.put(character, 1);
+            else
+                characterCounts.computeIfPresent(character, (key, val) -> val + 1);
+//                characterCounts.put(character, characterCounts.get(character) +1);
         }
 
         for (Map.Entry<Character, Integer> character : characterCounts.entrySet())
