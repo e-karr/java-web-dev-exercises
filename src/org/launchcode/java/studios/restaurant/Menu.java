@@ -1,4 +1,4 @@
-package org.launchcode.java.studios.restaurantmenuapp;
+package org.launchcode.java.studios.restaurant;
 
 import java.util.ArrayList;
 
