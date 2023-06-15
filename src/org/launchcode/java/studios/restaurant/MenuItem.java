@@ -1,14 +1,17 @@
 package org.launchcode.java.studios.restaurant;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 public class MenuItem {
+
     private String name;
     private double price;
     private String description;
     private String category;
-    private Date dateAdded;
-    private boolean special;
+    private LocalDate dateAdded = LocalDate.now();
+    private boolean special = false;
 
     public MenuItem(String name, double price, String description, String category, boolean special) {
         this.name = name;
@@ -16,7 +19,6 @@ public class MenuItem {
         this.description = description;
         this.category = category;
         this.special = special;
-        this.dateAdded = new Date();
     }
 
     public MenuItem(String name, double price, String description, String category) {
@@ -55,7 +57,7 @@ public class MenuItem {
         this.category = category;
     }
 
-    public Date getDateAdded() {
+    public LocalDate getDateAdded() {
         return dateAdded;
     }
 
@@ -65,5 +67,40 @@ public class MenuItem {
 
     public void setSpecial(boolean special) {
         this.special = special;
+    }
+
+    private boolean isNewItem() {
+        LocalDate currentDate = LocalDate.now();
+        long daysBetween = ChronoUnit.DAYS.between(dateAdded, currentDate);
+
+        if (daysBetween > Menu.DAYS_NEW) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        String menuItemStr = "";
+        menuItemStr += "Name: " + getName();
+        menuItemStr += "\nPrice: " + getPrice();
+        menuItemStr += "\nDescription: " + getDescription();
+        menuItemStr += "\nCategory: " + getCategory();
+
+        return menuItemStr;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MenuItem menuItem = (MenuItem) o;
+        return Double.compare(menuItem.price, price) == 0 && Objects.equals(name, menuItem.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price);
     }
 }
