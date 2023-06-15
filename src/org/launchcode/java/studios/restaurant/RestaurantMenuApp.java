@@ -1,7 +1,29 @@
 package org.launchcode.java.studios.restaurant;
 
-public class RestaurantMenu {
-    public static void main(String[] args) {
+import java.util.ArrayList;
 
+public class RestaurantMenuApp {
+    public static void main(String[] args) {
+        //create menu items
+        MenuItem blt = new MenuItem("BLT", 12, "Bacon, Lettuce, & Tomato sandwich", "handhelds");
+        MenuItem tomatoSoup = new MenuItem("Tomato Soup", 5, "Hot & Steamy Tomato soup", "soups");
+
+        //create menu
+        Menu lunchMenu = new Menu("lunch");
+
+        //add item to menu
+        lunchMenu.add(blt);
+        System.out.println(lunchMenu);
+
+        //add another item to menu
+        lunchMenu.add(tomatoSoup);
+        System.out.println(lunchMenu);
+
+        //remove item from menu
+        lunchMenu.remove(blt);
+        System.out.println(lunchMenu);
+
+        //print individual menu item
+        System.out.println(blt);
     }
 }
