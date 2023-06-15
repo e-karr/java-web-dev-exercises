@@ -19,6 +19,13 @@ public class Menu {
     }
 
     public boolean add(MenuItem newItem) {
+        for (MenuItem item : menuItems) {
+            if (item.equals(newItem)) {
+                System.out.println("Item already in menu");
+                return false;
+            }
+        }
+
         boolean addItem = this.menuItems.add(newItem);
 
         if (!addItem) {
