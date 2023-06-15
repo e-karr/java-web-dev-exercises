@@ -25,5 +25,12 @@ public class RestaurantMenuApp {
 
         //print individual menu item
         System.out.println(blt);
+
+        //create duplicate item
+        MenuItem tomatoSoupDupe = new MenuItem("Tomato Soup", 5, "Fresh Tomatoes", "soups");
+
+        //Try to add duplicate to lunch menu
+        lunchMenu.add(tomatoSoupDupe);
+        System.out.println(lunchMenu);
     }
 }
