@@ -46,7 +46,7 @@ public class Menu {
         fullMenu += "\n**********";
 
         for (MenuItem item : menuItems) {
-            fullMenu += "\n" + item;
+            fullMenu += "\n" + item + "\n";
         }
 
         return fullMenu;
