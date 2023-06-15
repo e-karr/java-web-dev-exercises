@@ -83,7 +83,11 @@ public class MenuItem {
     @Override
     public String toString() {
         String menuItemStr = "";
-        menuItemStr += "Name: " + getName();
+        if (isNewItem())
+            menuItemStr += "**NEW**";
+        if(isSpecial())
+            menuItemStr += "\n**SPECIAL**";
+        menuItemStr += "\nName: " + getName();
         menuItemStr += "\nPrice: " + getPrice();
         menuItemStr += "\nDescription: " + getDescription();
         menuItemStr += "\nCategory: " + getCategory();
