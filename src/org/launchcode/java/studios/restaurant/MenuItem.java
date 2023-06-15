@@ -1,7 +1,10 @@
 package org.launchcode.java.studios.restaurant;
 
+import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Currency;
+import java.util.Locale;
 import java.util.Objects;
 
 public class MenuItem {
@@ -41,6 +44,14 @@ public class MenuItem {
         this.price = price;
     }
 
+    private String printCurrency() {
+        Locale usa = new Locale("en", "US");
+        Currency dollars = Currency.getInstance(usa);
+        NumberFormat dollarFormat = NumberFormat.getCurrencyInstance(usa);
+
+        return dollarFormat.format(price);
+    }
+
     public String getDescription() {
         return description;
     }
@@ -61,7 +72,7 @@ public class MenuItem {
         return dateAdded;
     }
 
-    public boolean isSpecial() {
+    private boolean isSpecial() {
         return special;
     }
 
@@ -71,7 +82,7 @@ public class MenuItem {
 
     private boolean isNewItem() {
         LocalDate currentDate = LocalDate.now();
-        long daysBetween = ChronoUnit.DAYS.between(dateAdded, currentDate);
+        long daysBetween = ChronoUnit.DAYS.between(getDateAdded(), currentDate);
 
         if (daysBetween > Menu.DAYS_NEW) {
             return false;
@@ -88,7 +99,7 @@ public class MenuItem {
         if(isSpecial())
             menuItemStr += "\n**SPECIAL**";
         menuItemStr += "\nName: " + getName();
-        menuItemStr += "\nPrice: " + getPrice();
+        menuItemStr += "\nPrice: " + printCurrency();
         menuItemStr += "\nDescription: " + getDescription();
         menuItemStr += "\nCategory: " + getCategory();
 
