@@ -6,7 +6,7 @@ public class RestaurantMenuApp {
     public static void main(String[] args) {
         //create menu items
         MenuItem blt = new MenuItem("BLT", 12, "Bacon, Lettuce, & Tomato sandwich", "handhelds");
-        MenuItem tomatoSoup = new MenuItem("Tomato Soup", 5, "Hot & Steamy Tomato soup", "soups");
+        MenuItem tomatoSoup = new MenuItem("Tomato Soup", 5, "Hot & Steamy Tomato soup", "soups", true);
 
         //create menu
         Menu lunchMenu = new Menu("lunch");
