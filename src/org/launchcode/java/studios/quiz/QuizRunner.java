@@ -19,6 +19,9 @@ public class QuizRunner {
         TrueOrFalse newQuestion3 = new TrueOrFalse(1, "Are all dogs the best?", true);
         myQuiz.addQuestion(newQuestion3);
 
+        ShortAnswer newQuestion4 = new ShortAnswer(3, "What is the well-known chant of the Jayhawks?", "Rock Chalk Jayhawk");
+        myQuiz.addQuestion(newQuestion4);
+
         myQuiz.runQuiz();
 
         myQuiz.gradeQuiz();
