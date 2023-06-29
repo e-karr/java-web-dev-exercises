@@ -22,6 +22,10 @@ public class QuizRunner {
         ShortAnswer newQuestion4 = new ShortAnswer(3, "What is the well-known chant of the Jayhawks?", "Rock Chalk Jayhawk");
         myQuiz.addQuestion(newQuestion4);
 
+        ArrayList<Integer> scale = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        LinearScale newQuestion5 = new LinearScale(2, "How hot is it outside?", scale);
+        myQuiz.addQuestion(newQuestion5);
+
         myQuiz.runQuiz();
 
         myQuiz.gradeQuiz();

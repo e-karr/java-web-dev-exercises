@@ -23,7 +23,7 @@ public class ShortAnswer extends Question{
     @Override
     public int getAnswers() {
         Scanner answer = new Scanner(System.in);
-        System.out.println("What will your answer be? Answer must be less than 80 characters.");
+        System.out.println("Answer must be less than 80 characters.");
         String userAnswer = answer.nextLine();
         while (userAnswer.length() > 80) {
             System.out.println("Answer must be less than 80 characters.");
